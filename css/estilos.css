@@ -1,0 +1,482 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap');
+:root {
+    --white: #FFFFFF;
+    --black: #000000;
+    --very-light-pink: #C7C7C7;
+    --text-input-field: #F7F7F7;
+    --hospital-green: #ACD9B2;
+    --sm: 14px;
+    --md: 16px;
+    --lg: 18px;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: 'Open Sans', sans-serif;
+}
+
+body{
+    margin-left: 80px;
+    margin-top: 80px;
+    transition: margin-left 300ms cubic-bezier(0.785, 0.135, 0.15, 0.86);
+}
+
+main{
+    padding: 20px;
+}
+
+header{
+    width: 100%;
+    height: 80px;
+    background: #ff0000;
+    display: flex;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    z-index: 200;
+}
+
+.icon__menu{
+    width: 50px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateX(10px);
+}
+
+.icon__menu i{
+    font-size: 20px;
+    cursor: pointer;
+    position: absolute;
+}
+
+.menu__side{
+    width: 80px;
+    height: 100%;
+    background: #18181a;
+    position: fixed;
+    top: 0;
+    left: 0;
+    color: white;
+    font-size: 18px;
+    z-index: 300;
+    overflow: hidden;
+    overflow-y: scroll;
+    border-right: 20px solid #18181a;
+    transition: all 300ms cubic-bezier(0.785, 0.135, 0.15, 0.86);
+}
+
+/*Ocultar scroll para chrome, safari y opera*/
+.menu__side::-webkit-scrollbar{
+    display: none;
+}
+
+/*Ocultar scroll para IE, Edge y Firefox*/
+.menu__side{
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+
+.name__page{
+    padding: 20px 30px;
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.name__page i{
+    width: 20px;
+    margin-right: 20px;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.options__menu{
+    padding: 20px 30px;
+    position: absolute;
+    top: 80px;
+}
+
+.options__menu a{
+    color: #ffffffb2;
+    cursor: default;
+    display: block;
+    position: relative;
+    transition: color 300ms;
+}
+
+.options__menu a:hover{
+    color: #fff;
+ 
+}
+
+.options__menu .option{
+    padding: 20px 0px;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.options__menu .option i{
+    width: 20px;
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+.options__menu .option h4{
+    font-weight: 300;
+    cursor: pointer;
+}
+
+a.selected{
+    color: #fff;
+}
+
+.selected:before{
+    content: '';
+    width: 3px;
+    height: 80%;
+    background: white;
+    position: absolute;
+    top: 10%;
+    left: -30px;
+}
+
+/*Clases para usar en JavaScript*/
+
+.body_move{
+    margin-left: 250px;
+}
+
+.menu__side_move{
+    width: 250px;
+}
+/**/
+
+@media screen and (max-width: 760px){
+    .body_move{
+        margin-left: 0px;
+    }
+
+    .menu__side_move{
+        width: 80px;
+        left: -80px;
+    }
+}
+
+
+
+h4 {
+    margin: 0;
+}
+p {
+    line-height: 1.3;
+    margin: 0;
+    color: black;
+}
+a {
+    text-decoration: none;
+}
+img {
+    max-width: 100%;
+    display: block;
+    margin: 0;
+}
+.contenedor {
+    max-width: 120rem;
+    margin-inline: auto;
+    width: 90%;
+}
+
+
+.caja-curso {
+    background-color: orange;
+    text-align: center;
+    color: #fff;
+    padding: 5rem;
+
+}
+.caja-curso h1 {
+    margin: 0;
+}
+.caja-curso p {
+    font-size: 1.3rem;
+}
+.caja-curso a {
+    font-size: 2.4rem;
+    padding: 2rem;
+    display: inline-block;
+    text-decoration: none;
+    color: #fff;
+    padding: 0;
+}
+
+.productos {
+    display: grid;
+    gap: 4rem;
+    margin-bottom: 5rem;
+    grid-template-columns: repeat(1,1fr);
+}
+@media(min-width: 768px){
+    .productos {
+        grid-template-columns: repeat(2,1fr);
+    }
+}
+@media(min-width: 992px){
+   .productos {
+     grid-template-columns: repeat(3,1fr);
+     
+   }
+}
+@media(min-width: 1200px){
+    .productos {
+        grid-template-columns: repeat(4,1fr);
+    }
+}
+.producto__mini {
+    background: rgb(255, 255, 255);
+}
+.efecto__Producto--mini {
+    background-color: rgb(0, 0, 0);
+}
+.producto__info {
+    padding: .2rem 1rem;
+}
+.producto__texto:hover {
+    color: rgba(139, 49, 0, 0.722);
+
+} 
+.producto__precio {
+    font-size: 2.5rem;
+    color: #25292b52;
+    font-weight: 900;
+    line-height: 1;
+    margin-top: .5rem;
+}
+.btn__agregar--Carrito {
+    font-size: 1.4rem;
+    background-color: rgb(243, 140, 6);
+    border: none;
+    width: 100%;
+    padding: .5rem 1rem;
+    margin-top: 0.9rem;
+    cursor: pointer;
+}
+
+/*Formulario*/
+
+.input__formulario {
+    border-radius: 2.5rem;
+    padding: .5rem;
+}
+
+
+@media(min-width: 768px){
+    .input__formulario {
+        width: 25rem;
+        margin-left: 6rem;
+    }
+}
+@media(min-width: 1200px){
+    .input__formulario {
+        width: 50rem;
+    }
+}
+.icon__car {
+    margin-left: 1.3rem;
+    font-size: 2rem;
+    position: relative;
+    left: 6rem;
+}
+@media(min-width: 1200px) {
+    .icon__car {
+       right: 0;
+    }
+}
+.carrito {
+    cursor: pointer;
+    color: #18181a;
+}
+/*Ahora esta clase se la 
+pondré a la imagen*/
+
+
+/*CONTACTO*/
+
+
+
+
+
+/*En esta parte lo que haremos será agregar los estilos correspondientes de lo que vendría siendo amm, el carrito desplegable por ejemplo.*/
+/*Title para espacio antes del maín*/
+.title-preMain {
+    padding: 5rem 5rem 4rem;
+}
+.title-preMain h4{
+    font-size: 2.6rem;
+}
+/*Utilidad*/
+.activo {
+    display: none;
+}
+/**/
+.product-detail {
+    width: 360px;
+    padding: 24px;
+    box-sizing: border-box;
+    position: absolute;
+    right: 0;
+    background-color: #fff;
+    box-shadow: 0px 0px 10px 2px rgba(84, 71, 71, 0.459);
+    
+  }
+  .title-container {
+    display: flex;
+  }
+  .title-container img {
+    transform: rotate(180deg);
+    margin-right: 14px;
+  }
+  .title {
+    font-size: var(--lg);
+    font-weight: bold;
+  }
+  .order {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 16px;
+    align-items: center;
+    background-color: var(--text-input-field);
+    margin-bottom: 24px;
+    border-radius: 8px;
+    padding: 0 24px;
+  }
+  .order p:nth-child(1) {
+    display: flex;
+    flex-direction: column;
+  }
+  .order p span:nth-child(1) {
+    font-size: var(--md);
+    font-weight: bold;
+  }
+  .order p:nth-child(2) {
+    text-align: end;
+    font-weight: bold;
+  }
+  .shopping-cart {
+    display: grid;
+    grid-template-columns: auto 1fr auto auto;
+    gap: 16px;
+    margin-bottom: 24px;
+    align-items: center;
+  }
+  .shopping-cart figure {
+    margin: 0;
+  }
+  .shopping-cart figure img {
+    width: 70px;
+    height: 70px;
+    border-radius: 20px;
+    object-fit: cover;
+  }
+  .shopping-cart p:nth-child(2) {
+    color: var(--very-light-pink);
+  }
+  .shopping-cart p:nth-child(3) {
+    font-size: var(--md);
+    font-weight: bold;
+  }
+  .primary-button {
+    background-color: var(--hospital-green);
+    border-radius: 8px;
+    border: none;
+    color: var(--white);
+    width: 100%;
+    cursor: pointer;
+    font-size: var(--md);
+    font-weight: bold;
+    height: 50px;
+  }
+  @media (max-width: 640px) {
+    .product-detail {
+      width: 100%;
+    }
+  }
+
+
+
+
+
+
+
+/*Después de haber colocado los estilos correspondientes colocaremos el html, le quitaremos la apariencia, sólo iria algo amm simbólico,
+lo que tenemos que checar es que tenga la funcionalidad, y que se vea bien claramente, algo acorde al diseño de la misma página.*/
+
+
+.texto__aparece {
+    display: block;
+    white-space: nowrap;
+    border-right: 4px solid;
+    width: 11ch;
+    animation: typing 2.5s steps(11), blink .5s infinite alternate;
+    overflow: hidden;
+    font-size: 2.5rem;
+   
+}
+@keyframes typing {
+    from {width: 0}
+}
+
+@keyframes blink {
+    50% { border-color: transparent}
+}
+
+
+
+/*Bueno ajá, ya pasando el problema de los estilos, aún no por completo lo 
+que quiero hacer es amm quitarle el input o cambiarle el place holder para que al pasar una validación
+pues cambiarle esa cosa*/
+
+.section__selects {
+    width: 100%;
+    height: 8rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.contain__input {
+    height: 3rem
+}
+.input__presupuesto {
+    border-top-left-radius: 3rem;
+    border-bottom-left-radius: 3rem;
+    padding: 0.5rem 2rem;
+    border: none;
+    border: 1px solid slateblue;
+    box-shadow: 0px 0px 3px slateblue;
+}
+.btn-enviar {
+    background-color: #ff0000;
+    margin-bottom: 0.8rem;
+    padding: 0.5rem 1rem;
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+
+}
+
+.opacidad-btn-enviar {
+    opacity: 50%;
+}
+
+.cursor-btn-enviar {
+    cursor: not-allowed;
+}
+/*Error. entonces será algo como 
+*/
+
+

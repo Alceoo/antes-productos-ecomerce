@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Presupuesto</title>
+    <link rel="stylesheet" href="css/estilos.css">
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+    
+    <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <!--Ya después le heredaré el otro menú y todos los estilos que tendrá la página, 
+    pero por el momento perderíamos algo de tiempo.-->
+    
+    <!--LA VDD CREO QUE EL DISEÑO SI SE LO VOY A PIRATEAR AL DE FRTONTEND MENTOR JAJAJ
+    Por ahora creo que sería lo más aceptable
+    Este va a tener varias cosas la vdd, sería algo muy interesante.
+    -->
+    <header class="header">
+        <div class="icon__menu">
+            <i class="fas fa-bars" id="btn_open"></i>
+        </div>
+        <form action="" class="formulario__completo">
+            <input type="text" placeholder="Qué buscas?" class="input__formulario">
+        </form>
+        
+        <div class="icon__car">
+           <a href="#">
+                <i class='bx bx-cart-download carrito' id="car"></i>
+                
+           </a>
+        </div>
+       
+        
+    </header>
+    <div class="menu__side" id="menu_side">
+
+        <div class="name__page">
+            <i> T</i>
+            <h4>Terminales Rodríguez</h4>
+        </div>
+
+        <div class="options__menu">	
+
+            <a href="index.html" class="selected">
+                <div class="option">
+                    <i class="fas fa-home" title="Inicio"></i>
+                    <h4>Inicio</h4>
+                </div>
+            </a>
+
+            <a href="productos.html">
+                <div class="option">
+                    <i class='bx bx-store-alt' title="Productos"></i>
+                    <h4>Productos</h4>
+                </div>
+            </a>
+            
+            <a href="#">
+                <div class="option">
+                    <i class='bx bx-briefcase' title="Afiliate"></i>
+                    <h4>Afiliate</h4>
+                </div>
+            </a>
+
+            <a href="#">
+                <div class="option">
+                    <i class="far fa-sticky-note" title="Blog"></i>
+                    <h4>Blog</h4>
+                </div>
+            </a>
+
+            <a href="formulario.html">
+                <div class="option">
+                    <i class='bx bxs-contact' title="Contacto"></i>
+                    <h4>Contáctanos</h4>
+                </div>
+            </a>
+
+            <a href="#">
+                <div class="option">
+                    <i class="far fa-address-card" title="Nosotros"></i>
+                    <h4>Nosotros</h4>
+                </div>
+            </a>
+        </div>
+
+    </div>
+   <section class="section__selects">
+    <form action="" class="contain__input">
+        <input type="text" placeholder="Coloca tu presupuesto" id="inputPresupuesto" class="input__presupuesto">
+    </form>
+    <a href="#" class="btn-enviar">enviar</a>
+   </section>
+    <main></main>
+    <!--Ya después de haber linkeado el otro archivo lo que me 
+    gustaría hacer sería amm.
+añadirle el css, pego esto por aquí ya que voy a rellenar con los estilos
+que ya tengo, cambié de opinión.
+<form action="" class="form__container">
+        <input type="text" placeholder="Coloca tú presupuesto" class="formulario" id="formPresupuesto">
+    </form>
+
+-->
+<script src="js/function-products.js"></script>
+</body>
+</html>
