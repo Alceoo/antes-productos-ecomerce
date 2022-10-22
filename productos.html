@@ -4,14 +4,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Presupuesto</title>
-    <link rel="stylesheet" href="css/estilos.css">
+    <title>Productos</title>
+     <link rel="stylesheet" href="css/estilos.css">
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
-    
+    <link rel="stylesheet" href="css/styles.css">
     <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
 </head>
-<body>
-    <!--Ya después le heredaré el otro menú y todos los estilos que tendrá la página, 
+<body id="body">
+    <!--
+    Ya después le heredaré el otro menú y todos los estilos que tendrá la página, 
     pero por el momento perderíamos algo de tiempo.-->
     
     <!--LA VDD CREO QUE EL DISEÑO SI SE LO VOY A PIRATEAR AL DE FRTONTEND MENTOR JAJAJ
@@ -26,20 +27,158 @@
             <input type="text" placeholder="Qué buscas?" class="input__formulario">
         </form>
         
-        <div class="icon__car">
+        <!-- <div class="icon__car">
            <a href="#">
                 <i class='bx bx-cart-download carrito' id="car"></i>
                 
            </a>
-        </div>
-       
-        
+        </div> -->
+        <div>
+            <img src="img/cartRed.png" alt="imagenCarritoDeCompras" onmouseover="showCart(this)" class="cart">
+            <p class="count-product">0</p>
+         </div>
+         <div class="cart-products" id="products-id">
+            <p class="close-btn" onclick="closeBtn()">X</p>
+            <h3>Mi carrito</h3>
+            <div class="card-items">
+                
+                  <!-- <div class="item">
+                        <img src="./images/products/keyboard-1.jpg" alt="">
+                        <div class="item-content">
+                            <h5>name of product name of product name of product</h5>
+                            <h5 class="cart-price">45.50$</h5>
+                            <h6>Amount: 3</h6>
+                        </div>
+                        <span>X</span>
+                    </div>
+    
+                    <div class="item">
+                        <img src="./images/products/keyboard-1.jpg" alt="">
+                        <div class="item-content">
+                            <h5>name of product name of product name of product</h5>
+                            <h5 class="cart-price">45.50$</h5>
+                            <h6>Amount: 3</h6>
+                        </div>
+                        <span class="delete-product" data-id="">X</span>
+                    </div> -->
+<!--Pasos para construir un carrito de compras...
+
+1.Seleccionar toda la card donde están metidos mis productos.(esto para que 
+después por medio de condiciones sólo se ejecute lo que se tiene
+que hacer si le damos a la etiqueta a)
+
+(De esta manera lo que estoy haciendo no es más que yendome de arriba hacia abajo, esto para que pueda 
+leer de una todos los datos.
+
+2.Mando llamar la función leerDatos, esto para que
+
+
+Después lo que yo quiero es recuperar la información del precio, la imagen, texto
+para Ponerla EN MI CARRITO DE COMPRAS DESPUÉS. 
+
+es para ello que ocupamos un objeto...
+
+o sea que de aquí realmente ya estamos agrupando toda esa información que yo
+quiero en un objeto y la estoy leyendo, es como si la estuviera extrayendo.
+
+por cada que le de click a cualquier objeto, esto ya me va a traer toda su
+info, claro, toda la info que yo la le coloque.)
+
+(ESTOY LEYENDO LOS DATOS QUE YA TENGO EN EL HTML, EXACTAMENTE
+A LOS QUE LES DI CLICK).
+
+Entre los que estoy leyendo son, 
+Precio: lo leo desde la card del html seleccionándola
+texto: igual, lo leo seleccionándolo desde la card
+boton: al btn lo leo por medio de su id, el btn de agregar carrito es el único que 
+tiene (id), este id se le colocó desde el html, este id es un data-id
+/
+Mi premisa es que si genero el html de manera dinámica, el id lo tendría que
+seleccionar de la misma manera, no sería nada del otro mundo jjaja
+y quizás borrar por el mismo id, ya que en realidad no tengo cosas juntas, sino que están
+separadas, por ejemplo genero mis elementos desde amm un array con objetos, este array con 
+objetos tienen la información que voy a mostrar de los productos, pero a su vez, este array 
+tendría la información que le voy a pasar a mi carrito de compras, entonces el primer
+array sería el que me diera el id, o sea en el que le tendría que colocar un id único con
+dataset.date.now();
+ya haciendo esto lo que me tocaría sería extraer los demás valores...
+
+después de ya colocarlo a cada uno de mis productos esa información la tendría que
+extraer de las mismas cards, para que después igual se lo asignemos a 
+, el id lo podría generar desde el mismo objeto
+ este mismo objeto u otro objeto que englobe la información que va a crear
+ a la card.
+/
+ahora, lo que tengo que hacer es poner o agrupar esos datos
+en un arreglo, esto para tener el cúmulo de datos que ya estoy ocupando....
+3.Ahora, sería crear el arreglo, después de crearlo sería llenarlo con la información que
+tengo.
+4.Ese arreglo me sirve a mi para englobar toda mi información de objetos
+en un sólo lugar, como un cúmulo de información de la misma clase.
+ pero lo que quiero con dicho arreglo es imprimirlo, mostrarlo al público, para 
+ mostrarlo necesito imprimir el html
+5.Actualizar la cantidad.-->
+            </div>
+
+            <h2>Total: <strong class="price-total">0</strong> $</h2>
+            <a class="vaciar-Carrito" id="vaciarCarrito">Vaciar carrito</a>
+            
+         </div>       
     </header>
-    <div class="menu__side" id="menu_side">
+    <!-- <aside class="product-detail activo">
+        <div class="title-container">
+          <img src="./icons/flechita.svg" alt="arrow">
+          <p class="title">My order</p>
+        </div>
+    
+        <div class="my-order-content" id="lugar__productosCarrito">
+          <!-- <div class="shopping-cart">
+            <figure>
+              <img src="img/fastonUnCuarto-latonado.jpg" alt="bike">
+            </figure>
+            <p>Faston 1/4 Latonado</p>
+            <p>$30,00</p>
+            <img src="./icons/icon_close.png" alt="close">
+          </div>
+    
+          <div class="shopping-cart">
+            <figure>
+              <img src="img/fastonUnCuarto-latonado.jpg" alt="bike">
+            </figure>
+            <p>Faston 1/4 Latonado</p>
+            <p>$30,00</p>
+            <img src="./icons/icon_close.png" alt="close">
+          </div>
+    
+          <div class="shopping-cart">
+            <figure>
+              <img src="img/fastonUnCuarto-latonado.jpg"bike">
+            </figure>
+            <p>Faston 1/4 latonado</p>
+            <p>$30,00</p>
+            <img src="./icons/icon_close.png" alt="close">
+          </div> 
+    
+          <div class="order">
+            <p>
+              <span>Total</span>
+            </p>
+            <p>$560.00</p>
+          </div>
+    
+          <button class="primary-button">
+            Checkout
+          </button>
+        </div>
+      </div>
+    </aside>
+     -->
+
+     <div class="menu__side" id="menu_side">
 
         <div class="name__page">
-            <i> T</i>
-            <h4>Terminales Rodríguez</h4>
+            <i>G</i>
+            <h4>Gin</h4>
         </div>
 
         <div class="options__menu">	
@@ -88,22 +227,242 @@
         </div>
 
     </div>
-   <section class="section__selects">
-    <form action="" class="contain__input">
-        <input type="text" placeholder="Coloca tu presupuesto" id="inputPresupuesto" class="input__presupuesto">
+    <form action="">
+       
+        <!-- <select name="" id="terminales">
+            <option value="">Seleccione</option>
+            <option value="faston 1/4 Latonado">faston 1/4 latonado</option>
+            <option value="faston 1/4 Cobrizado">faston 1/4 Cobrizado</option>
+            <option value="ojillo 3/16 Cobrizado">Ojillo 3/16 Cobrizado</option>
+            <option value="Zapata 1/2 Cobrizado">Zapata 1/2 Cobrizado</option>
+            <option value="Faston 5/16 Galvanizado">Faston 5/16 galvanizado</option>
+            <option value="faston 1/8">faston 1/8</option>
+            <option value="faston 3/16"> faston 3/16</option>
+            <option value="faston 3/8 Cobrizado">faston 3/8 Cobrizado</option>
+            <option value="PN 180">PN 180</option>
+            <option value="hembra 1.80">hembra 1.80</option>
+            <option value="macho 1/8 Latonado">macho 1/8 Latonado</option>
+            <option value="macho 3/16 Latonado">macho 3/16 Latonado</option>
+            <option value="macho 1/4 Cobrizado">macho 1/4 Cobrizado</option>
+            <option value="macho 1/4 Latonado">macho 1/4 Latonado</option>
+            <option value="barrilito">barrilito</option>
+            <option value="interlock Laton">interlock Laton</option>
+            <option value="ojillo 5/32 Cobrizado">ojillo 5/32 Cobrizado</option>
+            <option value="ojillo 3/16 Latonado">ojillo 3/16 Latonado</option>
+            <option value="espada 3/16">espada 3/16</option>
+            <option value="ojillo 1/4 Cobrizado">ojillo 1/4 Cobrizado</option>
+            <option value="ojillo 1/4 Latonado">ojillo 1/4 Latonado</option>
+            <option value="ojillo 5/16 Cobrizado">ojillo 5/16 Cobrizado</option>
+            <option value="ojillo 1/16 Latonado">Ojillo 5/16 Latonado</option>
+            <option value="ojillo especial">ojillo especial</option>
+            <option value="ojillo 3/8 Cobrizado">ojillo 3/8 Cobrizado</option>
+            <option value="ojillo 3/8 Latonado">ojillo 3/8 Latonado</option>
+            <option value="ojillo 1/2 Latonado">ojillo 1/2 Latonado</option>
+            <option value="Zapata 3/8 Cobrizado">Zapata 3/8 Cobrizado</option>
+            <option value="Zapata 3/8 Latonado">Zapata 3/8 Latonado</option>
+          
+        </select> -->
+        
+        <form id="buscador">
+            <div class="row">
+                <div class="three columns">
+                    <label for="marca">Marca</label>
+                    <select class="u-full-width" id="marca">
+                        <option value="">Seleccione</option>
+                        <option value="Audi">Audi</option>
+                        <option value="BMW">BMW</option>
+                        <option value="Mercedes Benz">Mercedes Benz</option>
+                        <option value="Chevrolet">Chevrolet</option>
+                        <option value="Ford">Ford</option>
+                        <option value="Dodge">Dodge</option>
+                    </select>
+                </div>
+                <div class="three columns">
+                    <label for="year">Año</label>
+                    <select class="u-full-width" id="year">
+                        <option value="">Seleccione</option>
+                    </select>
+                </div>
+                <div class="three columns">
+                    <label for="minimo">Precio Min</label>
+                    <select class="u-full-width" id="minimo">
+                            <option value="">Seleccione</option>
+                            <option value="20000">20,000</option>
+                            <option value="30000">30,000</option>
+                            <option value="40000">40,000</option>
+                            <option value="50000">50,000</option>
+                            <option value="60000">60,000</option>
+                            <option value="70000">70,000</option>
+                            <option value="80000">80,000</option>
+                            <option value="90000">90,000</option>
+                    </select>
+                </div>
+                <div class="three columns">
+                    <label for="maximo">Precio Max</label>
+                    <select class="u-full-width" id="maximo">
+                            <option value="">Seleccione</option>
+                            <option value="20000">20,000</option>
+                            <option value="30000">30,000</option>
+                            <option value="40000">40,000</option>
+                            <option value="50000">50,000</option>
+                            <option value="60000">60,000</option>
+                            <option value="70000">70,000</option>
+                            <option value="80000">80,000</option>
+                            <option value="90000">90,000</option>
+                    </select>
+                </div>
+                <div class="row">
+                    <div class="four columns">
+                        <label for="puertas">Puertas</label>
+                        <select class="u-full-width" id="puertas">
+                                <option value="">Seleccione</option>
+                                <option value="2">2</option>
+                                <option value="4">4</option>
+                        </select>
+                    </div>
+                    <div class="four columns">
+                        <label for="transmision">Transmisión</label>
+                        <select class="u-full-width" id="transmision">
+                                <option value="">Seleccione</option>
+                                <option value="automatico">Automática</option>
+                                <option value="manual">Manual</option>
+                        </select>
+                    </div>
+                    <div class="four columns">
+                        <label for="color">Color</label>
+                        <select class="u-full-width" id="color">
+                                <option value="">Seleccione</option>
+                                <option value="Negro">Negro</option>
+                                <option value="Azul">Azul</option>
+                                <option value="Blanco">Blanco</option>
+                                <option value="Rojo">Rojo</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </form>
     </form>
-    <a href="#" class="btn-enviar">enviar</a>
-   </section>
-    <main></main>
-    <!--Ya después de haber linkeado el otro archivo lo que me 
-    gustaría hacer sería amm.
-añadirle el css, pego esto por aquí ya que voy a rellenar con los estilos
-que ya tengo, cambié de opinión.
-<form action="" class="form__container">
-        <input type="text" placeholder="Coloca tú presupuesto" class="formulario" id="formPresupuesto">
-    </form>
+    
+    <main class="main">
+       <div class="contenedor">
+        <div class="productos" id="resultado">
+            
 
--->
-<script src="js/function-products.js"></script>
+            <div class="carts">
+                <div>
+                    <img src="img/keyboard-1.jpg" alt="">
+                    <p><span>20</span>$</p>
+                </div>
+                <p class="title">Tempest Cataclysm Combo 3 En 1 Gaming Teclado</p>
+                <a href="" data-id="1" class="btn-add-cart">add to cart</a>
+            </div>
+            <div class="carts">
+                <div>
+                    <img src="img/keyboard-2.jpg" alt="">
+                    <p><span>35</span>$</p>
+                </div>
+                <p class="title"> Newskill Suiko Ivory Teclado Mecánico Gaming Full RGB</p>
+                <a href="" class="btn-add-cart" data-id="2">add to cart</a>
+            </div>
+            <div class="carts">
+                <div>
+                    <img src="img/keyboard-3.jpg" alt="">
+                    <p><span>15.50</span>$</p>
+                </div>
+                <p class="title"> Aukey KM-G16 Teclado Mecánico Gaming Retroiluminado</p>
+                <a href="" data-id="3" class="btn-add-cart">add to cart</a>
+            </div>
+            <div class="carts">
+                <div>
+                    <img src="img/keyboard-4.jpg" alt="">
+                    <p><span>20.20</span>$</p>
+                </div>
+                <p class="title"> Razer Huntsman Elite Teclado Mecánico Gaming RGB</p>
+                <a href="" data-id="4" class="btn-add-cart">add to cart</a>
+            </div>
+            <div class="carts">
+                <div>
+                    <img src="img/keyboard-5.jpg" alt="">
+                    <p><span>19</span>$</p>
+                </div>
+                <p class="title"> Trust GXT 856 Torac Teclado Metálico Gaming RGB</p>
+                <a href="" data-id="5" class="btn-add-cart">add to cart</a>
+            </div>
+            <div class="carts">
+                <div>
+                    <img src="img/keyboard-2.jpg" alt="">
+                    <p><span>45</span>$</p>
+                </div>
+                <p class="title"> MSI Vigor GK30 Teclado Gaming RGB</p>
+                <a href="" data-id="6" class="btn-add-cart">add to cart</a>
+            </div>
+            <div class="carts">
+                <div>
+                    <img src="img/keyboard-1.jpg" alt="">
+                    <p><span>23.99</span>$</p>
+                </div>
+                <p class="title"> Genesis Thor 300 RGB Teclado Mecánico Gaming RGB Switch Rojo</p>
+                <a href="" data-id="7" class="btn-add-cart">add to cart</a>
+            </div>
+            <div class="carts">
+                <div>
+                    <img src="img/keyboard-5.jpg" alt="">
+                    <p><span>50</span>$</p>
+                </div>
+                <p class="title"> Mars Gaming MKXTKL Teclado Mecánico Gaming RGB</p>
+                <a href="" data-id="8" class="btn-add-cart">add to cart</a>
+            </div>
+            <div class="carts">
+                <div>
+                    <img src="img/keyboard-3.jpg" alt="">
+                    <p><span>16</span>$</p>
+                </div>
+                <p class="title"> Trust GXT 881 Odyss Teclado Gaming Semi-Mecánico RGB</p>
+                <a href="" data-id="9" class="btn-add-cart">add to cart</a>
+            </div>
+            <div class="carts">
+                <div>
+                    <img src="img/keyboard-4.jpg" alt="">
+                    <p><span>17.50</span>$</p>
+                </div>
+                <p class="title"> Krom Krusher Teclado Gaming Híbrido RGB + Ratón</p>
+                <a href="" data-id="10" class="btn-add-cart">add to cart</a>
+            </div>
+            <div class="carts">
+                <div>
+                    <img src="img/keyboard-5.jpg" alt="">
+                    <p><span>45</span>$</p>
+                </div>
+                <p class="title"> Corsair K55 RGB PRO XT Teclado Gaming Retroiluminado Negro</p>
+                <a href="" data-id="11" class="btn-add-cart">add to cart</a>
+            </div>
+
+
+        </div>
+       </div>
+    </main>
+         <!--Ya después de haber linkeado el otro archivo lo que me 
+         gustaría hacer sería amm.
+        añadirle el css, pego esto por aquí ya que voy a rellenar con los estilos
+        que ya tengo, cambié de opinión.
+        <form action="" class="form__container">
+                <input type="text" placeholder="Coloca tú presupuesto" class="formulario" id="formPresupuesto">
+            </form>
+        -->
+            <!--Entonces aquí tendría que poner el link para mi archivo js que
+            se encargará de filtrar como tal... filtrar los productos
+        y desde aquí vería el fallo.-->
+        <script src="js/filtrar.js"></script>
+        <script src="js/script.js"></script>
+        <script src="js/dbs.js"></script>
+        <script src="js/abrir-cerrar.js"></script>
+        <script>
+            function showCart(x){
+                document.getElementById('products-id').style.display = 'block';
+            }
+            function closeBtn(){
+                document.getElementById('products-id').style.display = 'none';
+            }
+        </script>
 </body>
 </html>
